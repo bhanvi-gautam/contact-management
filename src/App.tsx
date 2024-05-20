@@ -1,26 +1,34 @@
+// App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Contacts from './components/Contacts';
+import ContactForm from './features/contacts/ContactForm';
+import { useSelector } from 'react-redux';
+import { RootState } from './app/store';
 
-function App() {
+const App: React.FC = () => {
+  const contacts = useSelector((state: RootState) => state.contacts.contacts);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+<>
+  <div className="flex mb-4 min-h-screen">
+    <Router>
+      <div className="w-1/2 h-full">
+        <Sidebar />
+      </div>
+      <div className="w-1/2 h-full">
+         <Routes>
+          <Route path="/" element={<Contacts />} />
+          <Route path="/contacts/create" element={<ContactForm />} />
+        </Routes>
+      </div> 
+    </Router>
+  </div>
+</>
+
   );
-}
+};
 
 export default App;
