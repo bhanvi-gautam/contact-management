@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
       <nav className="py-4">
         <ul>
           <li className="mb-2">
-            <Link to="/contacts" className="text-blue-600 hover:text-blue-800">Contacts</Link>
+            <Link to="/" className="text-blue-600 hover:text-blue-800">Contacts</Link>
           </li>
           <li className="mb-2">
             <Link to="/charts-and-maps" className="text-blue-600 hover:text-blue-800">Charts & Maps</Link>
